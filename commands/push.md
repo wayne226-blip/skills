@@ -6,6 +6,8 @@ Push all repos to GitHub.
 
 Run a GitHub push for Wayne's three repos. For each repo, stage any changes, commit with today's date, and push. Skip silently if nothing has changed.
 
+Load credentials by reading `~/.claude/.env` and extracting GITHUB_TOKEN and GITHUB_USER.
+
 ### Repos
 
 1. `/Users/wayne/Claude/Projects/SALES NOTE AI/`
