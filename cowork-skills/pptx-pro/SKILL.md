@@ -32,8 +32,8 @@ python scripts/html_to_pptx.py report.html output.pptx
 # From a string
 python scripts/html_to_pptx.py --from-string "# Title Slide\n\n## Agenda\n\n- Item 1\n- Item 2" output.pptx
 
-# With a branded template (fonts, colors, layouts)
-python scripts/html_to_pptx.py slides.md output.pptx --reference branded_template.pptx
+# With the included branded template (Georgia headings, Calibri body, navy palette)
+python scripts/html_to_pptx.py slides.md output.pptx --reference assets/wayne_brand_reference.pptx
 
 # Incremental bullets (one at a time in slideshow)
 python scripts/html_to_pptx.py slides.md output.pptx --incremental
@@ -302,10 +302,24 @@ ls -1 "$PWD"/slide-*.jpg
 
 ---
 
+## Branded Template
+
+A pre-built reference template is included at `assets/wayne_brand_reference.pptx`. It's based on Pandoc's default slide structure with branded fonts and colors applied (Georgia headings, Calibri body, midnight navy palette).
+
+Use it with any Pandoc conversion:
+```bash
+python scripts/html_to_pptx.py slides.md output.pptx --reference assets/wayne_brand_reference.pptx
+```
+
+This is the recommended approach for consistent-looking decks. If you need a different palette or branding, the simplest path is to open the reference file in PowerPoint, restyle the masters, and save — then use that as your new reference.
+
+---
+
 ## Dependencies
 
 - `pip install "markitdown[pptx]"` - text extraction
 - `pip install Pillow` - thumbnail grids
 - `npm install -g pptxgenjs` - creating from scratch
+- `pip install python-pptx` - template generation
 - LibreOffice (`soffice`) - PDF conversion (auto-configured for sandboxed environments via `scripts/office/soffice.py`)
 - Poppler (`pdftoppm`) - PDF to images

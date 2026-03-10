@@ -636,9 +636,36 @@ After running `comment.py` (see Step 2), add markers to document.xml. For replie
 
 ---
 
+## Branded DOCX Template Generator
+
+Generate a branded Word reference template for use with Pandoc's `--reference-doc` flag. This sets heading fonts, colors, body text style, and page margins so every document looks consistent.
+
+```bash
+# Generate template (5 palettes: midnight, forest, coral, ocean, charcoal)
+python scripts/create_docx_template.py /tmp/wayne_brand_template.docx --palette midnight
+
+# Use it with Pandoc
+python scripts/html_to_docx.py content.html output.docx --reference /tmp/wayne_brand_template.docx
+```
+
+The generator configures: Title, Subtitle, Heading 1–4, and Normal body text styles with branded fonts (Georgia headings, Calibri body) and colors. Generate once at the start of a session, then reuse across all documents.
+
+### Available Palettes
+
+| Palette | Heading Color | Best For |
+|---------|---------------|----------|
+| **midnight** (default) | Navy `#1E2761` | Professional, corporate |
+| **forest** | Green `#2C5F2D` | Nature, sustainability |
+| **coral** | Navy `#2F3C7E` | Creative, energetic |
+| **ocean** | Deep blue `#065A82` | Technology, trust |
+| **charcoal** | Charcoal `#36454F` | Minimal, modern |
+
+---
+
 ## Dependencies
 
-- **pandoc**: Text extraction
+- **pandoc**: Text extraction and document conversion
 - **docx**: `npm install -g docx` (new documents)
+- **python-docx**: `pip install python-docx` (template generation)
 - **LibreOffice**: PDF conversion (auto-configured for sandboxed environments via `scripts/office/soffice.py`)
 - **Poppler**: `pdftoppm` for images

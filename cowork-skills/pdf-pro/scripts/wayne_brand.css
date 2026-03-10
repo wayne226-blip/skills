@@ -1,0 +1,274 @@
+/* Wayne Pearce — Brand Theme for WeasyPrint PDFs
+ * Drop-in CSS theme for consistent, professional PDF output.
+ *
+ * Usage:
+ *   <link rel="stylesheet" href="wayne_brand.css">
+ *   — OR —
+ *   Inline with: {% include "wayne_brand.css" %}
+ *
+ * Works with WeasyPrint's CSS3 engine: flexbox, @page, counters, etc.
+ */
+
+/* ============================================================
+   VARIABLES — change these to rebrand everything at once
+   ============================================================ */
+:root {
+    --brand-primary:   #1E2761;   /* Deep navy */
+    --brand-secondary: #2B6CB0;   /* Bright blue */
+    --brand-accent:    #38A169;   /* Green accent */
+    --brand-warning:   #D69E2E;   /* Amber warning */
+    --brand-danger:    #E53E3E;   /* Red danger */
+    --brand-bg:        #FFFFFF;
+    --brand-bg-alt:    #F7FAFC;   /* Light gray alt rows / cards */
+    --brand-border:    #E2E8F0;
+    --brand-text:      #2D3748;
+    --brand-text-muted:#718096;
+
+    --font-heading:    Georgia, 'Times New Roman', serif;
+    --font-body:       -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Calibri', sans-serif;
+    --font-mono:       'Consolas', 'Monaco', monospace;
+}
+
+/* ============================================================
+   GLOBAL RESET & BASE
+   ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-body);
+    font-size: 11pt;
+    line-height: 1.6;
+    color: var(--brand-text);
+    background: var(--brand-bg);
+}
+
+/* ============================================================
+   PAGE SETUP — WeasyPrint @page rules
+   ============================================================ */
+@page {
+    size: letter;
+    margin: 0.85in 0.85in 1in 0.85in;
+
+    @bottom-center {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: var(--font-body);
+        font-size: 8pt;
+        color: var(--brand-text-muted);
+    }
+    @top-right {
+        content: "Wayne Pearce";
+        font-family: var(--font-body);
+        font-size: 7pt;
+        font-style: italic;
+        color: #a0aec0;
+    }
+}
+
+@page :first {
+    @top-right { content: none; }
+    @bottom-center { content: none; }
+}
+
+/* ============================================================
+   COVER PAGE
+   ============================================================ */
+.cover {
+    text-align: center;
+    padding-top: 2.5in;
+    page-break-after: always;
+}
+.cover h1 {
+    font-family: var(--font-heading);
+    font-size: 34pt;
+    color: var(--brand-primary);
+    margin-bottom: 0.15em;
+    letter-spacing: -0.5px;
+}
+.cover .subtitle {
+    font-size: 16pt;
+    color: var(--brand-secondary);
+    margin-bottom: 1.2em;
+}
+.cover .meta {
+    font-size: 10pt;
+    color: var(--brand-text-muted);
+    margin-bottom: 0.3em;
+}
+.cover .bar {
+    width: 80px;
+    height: 4px;
+    background: var(--brand-secondary);
+    margin: 1.5em auto;
+    border-radius: 2px;
+}
+.cover .logo {
+    max-width: 120px;
+    margin-bottom: 1em;
+}
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+h1 { font-family: var(--font-heading); font-size: 22pt; color: var(--brand-primary); margin-top: 1.5em; margin-bottom: 0.5em; }
+h2 { font-family: var(--font-heading); font-size: 16pt; color: var(--brand-primary); border-bottom: 2px solid var(--brand-secondary); padding-bottom: 0.3em; margin-top: 1.5em; margin-bottom: 0.6em; }
+h3 { font-family: var(--font-heading); font-size: 13pt; color: var(--brand-secondary); margin-top: 1.2em; margin-bottom: 0.4em; }
+h4 { font-size: 11pt; color: var(--brand-primary); font-weight: 700; margin-top: 1em; margin-bottom: 0.3em; }
+
+p { margin-bottom: 0.6em; }
+
+/* ============================================================
+   KPI CARDS
+   ============================================================ */
+.kpi-row {
+    display: flex;
+    gap: 16px;
+    margin: 1.2em 0;
+}
+.kpi-card {
+    flex: 1;
+    background: var(--brand-bg-alt);
+    border: 1px solid var(--brand-border);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+}
+.kpi-value {
+    font-family: var(--font-heading);
+    font-size: 28pt;
+    font-weight: 700;
+    color: var(--brand-primary);
+}
+.kpi-label {
+    font-size: 8pt;
+    color: var(--brand-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+.kpi-delta { font-size: 9pt; margin-top: 4px; }
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+    margin: 1em 0;
+}
+th {
+    background: var(--brand-primary);
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--brand-border);
+}
+tr:nth-child(even) td {
+    background: var(--brand-bg-alt);
+}
+
+/* ============================================================
+   CALLOUTS
+   ============================================================ */
+.callout {
+    background: #EBF8FF;
+    border-left: 4px solid var(--brand-secondary);
+    padding: 14px 18px;
+    margin: 1em 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 10pt;
+}
+.callout strong { color: var(--brand-primary); }
+
+.callout-success { background: #F0FFF4; border-left-color: var(--brand-accent); }
+.callout-success strong { color: #22543D; }
+
+.callout-warn { background: #FFFBEB; border-left-color: var(--brand-warning); }
+.callout-warn strong { color: #744210; }
+
+.callout-danger { background: #FFF5F5; border-left-color: var(--brand-danger); }
+.callout-danger strong { color: #742A2A; }
+
+/* ============================================================
+   LAYOUT HELPERS
+   ============================================================ */
+.two-col { display: flex; gap: 24px; margin: 1em 0; }
+.two-col > div { flex: 1; }
+
+.three-col { display: flex; gap: 16px; margin: 1em 0; }
+.three-col > div { flex: 1; }
+
+.section-break { page-break-before: always; }
+.keep-together { page-break-inside: avoid; }
+.no-break { page-break-inside: avoid; }
+
+/* ============================================================
+   STATUS BADGES
+   ============================================================ */
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 8pt;
+    font-weight: 600;
+}
+.badge-done    { background: #C6F6D5; color: #22543D; }
+.badge-wip     { background: #FEFCBF; color: #744210; }
+.badge-blocked { background: #FED7D7; color: #742A2A; }
+.badge-new     { background: #BEE3F8; color: #2A4365; }
+
+/* ============================================================
+   UTILITY COLORS
+   ============================================================ */
+.green { color: var(--brand-accent); }
+.red   { color: var(--brand-danger); }
+.blue  { color: var(--brand-secondary); }
+.muted { color: var(--brand-text-muted); }
+.bold  { font-weight: 700; }
+
+/* ============================================================
+   LISTS
+   ============================================================ */
+ul, ol { padding-left: 1.2em; margin-bottom: 0.6em; }
+li { margin-bottom: 0.3em; }
+
+/* ============================================================
+   CODE
+   ============================================================ */
+code {
+    font-family: var(--font-mono);
+    font-size: 9pt;
+    background: #EDF2F7;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+pre {
+    font-family: var(--font-mono);
+    font-size: 9pt;
+    background: #1A202C;
+    color: #E2E8F0;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 1em 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer-bar {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 2px solid var(--brand-border);
+    font-size: 8pt;
+    color: var(--brand-text-muted);
+    text-align: center;
+}

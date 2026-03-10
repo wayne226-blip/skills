@@ -356,6 +356,73 @@ c.save()
 
 ---
 
+## Brand Theme (wayne_brand.css)
+
+A drop-in CSS theme at `scripts/wayne_brand.css` provides Wayne's branded styling for any WeasyPrint PDF. It includes pre-built components — cover pages, KPI cards, tables, callouts, badges, and two/three-column layouts — all with consistent typography and colors.
+
+### Using the Brand Theme
+
+Include it in your HTML:
+```html
+<link rel="stylesheet" href="scripts/wayne_brand.css">
+```
+
+Or read and inline it:
+```python
+with open("scripts/wayne_brand.css") as f:
+    css = f.read()
+html = f"<style>{css}</style><div class='cover'><h1>Report Title</h1>...</div>"
+```
+
+### Available CSS Classes
+
+| Class | Purpose |
+|-------|---------|
+| `.cover`, `.cover h1`, `.subtitle`, `.bar`, `.meta` | Cover page |
+| `.kpi-row`, `.kpi-card`, `.kpi-value`, `.kpi-label`, `.kpi-delta` | KPI metric cards |
+| `.callout`, `.callout-success`, `.callout-warn`, `.callout-danger` | Callout boxes |
+| `.badge-done`, `.badge-wip`, `.badge-blocked`, `.badge-new` | Status badges |
+| `.two-col`, `.three-col` | Column layouts |
+| `.section-break`, `.keep-together` | Page break control |
+
+To rebrand, edit the CSS variables at the top of `wayne_brand.css`:
+```css
+:root {
+    --brand-primary: #1E2761;
+    --brand-secondary: #2B6CB0;
+    /* etc. */
+}
+```
+
+---
+
+## Embedding Images in PDFs
+
+Use `scripts/image_helpers.py` to embed local images into HTML for WeasyPrint rendering.
+
+```bash
+# Get an HTML <img> tag with base64-encoded image
+python scripts/image_helpers.py photo.png --html --width 80%
+
+# Get just the data URI
+python scripts/image_helpers.py photo.png
+```
+
+Library usage:
+```python
+from image_helpers import image_to_base64_uri, generate_img_tag, generate_img_tags
+
+# Single image
+tag = generate_img_tag("chart.png", width="60%", css_class="chart")
+
+# Multiple images
+tags = generate_img_tags(["img1.png", "img2.png"], width="45%")
+```
+
+Insert the returned HTML into your template before running WeasyPrint.
+
+---
+
 ## Next Steps
 
 - For advanced pypdfium2 usage, see REFERENCE.md
