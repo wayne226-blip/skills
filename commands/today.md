@@ -2,10 +2,12 @@ Generate my daily to-do list for today.
 
 ## Steps
 
-1. Read `Tasks/index.md` to understand the task system
-2. Scan all `.md` files in `Tasks/` and read their YAML front matter
-3. Read `Personal/routines.md` for today's schedule context
-4. Read `Personal/goals.md` for current priorities
+Vault path: `/Users/wayne/Library/Mobile Documents/iCloud~md~obsidian/Documents/wauzza/`
+
+1. Read `[vault]/Tasks/index.md` to understand the task system
+2. Scan all `.md` files in `[vault]/Tasks/` and read their YAML front matter
+3. Read `[vault]/Personal/routines.md` for today's schedule context
+4. Read `[vault]/Personal/goals.md` for current priorities
 5. Check what day of the week it is
 
 ## Output

@@ -20,7 +20,7 @@ Your job is to keep the vault in sync with reality — project statuses, tool li
 wauzza/
   README.md              — vault overview
   Projects.md            — all active projects with status
-  AI/                    — AI learning notes, agent docs, Claude knowledge (NEW — use this)
+  Learning AI/           — AI learning notes, agent docs, Claude knowledge
     Claude Code Agents — Full Registry.md
     How Claude Works — Things Most People Don't Know.md
   KDP/
@@ -82,7 +82,7 @@ When asked to sync or update the vault:
 - Never delete vault content unless Wayne explicitly asks
 - Never modify the IPTV folder — that's credentials, don't touch it
 - **Never create new files or folders inside `Apple Notes/`** — it is archive, synced from the Apple Notes app, too large to manage manually. It will keep growing on its own.
-- New AI/tech/Claude notes go in `AI/` not `Apple Notes/AI & Tech/`
+- New AI/tech/Claude notes go in `Learning AI/` not `Apple Notes/AI & Tech/`
 - New project notes go in the relevant project subfolder (e.g. `KDP/`) or vault root
 - Always show Wayne what you're about to change before writing
 - If a note doesn't exist yet and should, suggest creating it — don't just do it

@@ -2,10 +2,12 @@ Run a weekly review of my vault.
 
 ## Steps
 
-1. Scan all `.md` files in `Tasks/` — read YAML front matter
-2. Read `Personal/goals.md` for current priorities
-3. Read `Projects/index.md` for active projects
-4. Check `Inbox/` for any unfiled notes
+Vault path: `/Users/wayne/Library/Mobile Documents/iCloud~md~obsidian/Documents/wauzza/`
+
+1. Scan all `.md` files in `[vault]/Tasks/` — read YAML front matter
+2. Read `[vault]/Personal/goals.md` for current priorities
+3. Read `[vault]/Projects/index.md` for active projects
+4. Check `[vault]/Inbox/` for any unfiled notes
 
 ## Output
 
