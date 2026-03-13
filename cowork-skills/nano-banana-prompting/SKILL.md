@@ -116,6 +116,28 @@ When the prompt is ready, recommend using the **nano-banana** skill to actually 
 
 If the user agrees, invoke the `nano-banana` skill with the crafted prompt.
 
+### Bulk Output for Nano Banana Studio
+
+When the user asks for **multiple prompts at once** (e.g. "give me 5 prompts", "batch of prompts", "for Nano Banana Studio"), output a JSON array ready to paste directly into the Studio's Bulk Import modal.
+
+Each item in the array is an object with:
+- `prompt` — the full image description (string)
+- `ratio` — optional aspect ratio: `"1:1"`, `"3:4"`, `"16:9"`, or `"9:16"`
+- `model` — optional model override: `"nb2"` or `"pro"`
+
+**Format:**
+```json
+[
+  {"prompt": "...", "ratio": "16:9"},
+  {"prompt": "...", "ratio": "1:1", "model": "pro"},
+  {"prompt": "..."}
+]
+```
+
+Keep the `prompt` values as clean natural language descriptions (not the full nested JSON structure) — the Studio sends them directly to the API. Use `model: "pro"` only for prompts that genuinely need higher quality (complex scenes, precise text, fine detail). Default to `nb2` (omit the key) for speed and cost.
+
+Tell the user: *"Paste this into Nano Banana Studio → Bulk Import."*
+
 ## Model Differences
 
 | Feature | Nano Banana Pro | Nano Banana 2 |
