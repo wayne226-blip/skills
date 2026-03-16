@@ -249,3 +249,82 @@ Date: YYYY-MM-DD
 Tell Wayne the file path so he can find it:
 
 > Saved to: `/Users/wayne/Claude/linkedin-posts/YYYY-MM-DD-[slug].md`
+
+---
+
+## Repurpose for Other Platforms
+
+After presenting the LinkedIn posts, ask:
+
+> **Want me to repurpose this for other platforms?** (X, Bluesky, Threads — or all)
+
+If yes, take the **chosen LinkedIn version** (A or B) and adapt it for the requested platforms.
+
+### Platform Rules
+
+**X / Twitter:**
+- 280 chars per tweet. If the post needs more, create a thread (max 5 tweets).
+- Thread format: number each tweet (1/5, 2/5, etc.)
+- First tweet must hook — it's the only one most people see
+- No hashtags in the thread body. 1-2 hashtags on the final tweet only
+- Cut any padding ruthlessly. X rewards density
+
+**Bluesky:**
+- 300 chars per post. Use a thread if needed (max 4 posts)
+- More conversational than X — slightly looser tone is fine
+- No hashtags (Bluesky doesn't use them meaningfully yet)
+- Can include a link in the last post if relevant
+
+**Threads:**
+- 500 chars per post
+- Single post preferred — threads are less common here
+- Slightly more casual than LinkedIn, same directness
+- 1-2 hashtags max, only if genuinely relevant
+- Works well for hot takes and short observations
+
+### Voice — Same Rules Apply
+
+Wayne's voice doesn't change across platforms. Same directness, same contractions, same no-hype rule. The only thing that changes is length and structure.
+
+### Output Format
+
+```
+---
+X / TWITTER — [thread or single tweet]
+---
+
+[tweet text, numbered if thread]
+
+---
+BLUESKY — [thread or single post]
+---
+
+[post text]
+
+---
+THREADS
+---
+
+[post text]
+
+[hashtags if any]
+```
+
+### Save Repurposed Versions
+
+Append the repurposed versions to the **same file** that was already saved for the LinkedIn post. Add them under a new heading:
+
+```markdown
+---
+
+## Repurposed Versions
+
+### X / Twitter
+[content]
+
+### Bluesky
+[content]
+
+### Threads
+[content]
+```
