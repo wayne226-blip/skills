@@ -1,0 +1,23 @@
+{
+  "skill_name": "playwright-cli",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Can you go to https://httpbin.org/forms/post and fill in the customer name field with 'Wayne', set the email to 'wayne@test.com', then submit the form?",
+      "expected_output": "Opens the browser with playwright-cli open, takes a snapshot to see the form elements with refs, fills in the fields using playwright-cli fill with the correct refs, then clicks the submit button.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "take a screenshot of example.com and save it as example-homepage.png",
+      "expected_output": "Uses playwright-cli open to navigate to example.com, then playwright-cli screenshot --filename=example-homepage.png to capture and save it.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I need to check the Playwright docs site — can you go to playwright.dev, search for 'page.click', and tell me what comes up?",
+      "expected_output": "Opens playwright.dev with playwright-cli open, takes a snapshot to find the search element, types the query, presses Enter or clicks search, takes another snapshot, and reports back what appears in the results.",
+      "files": []
+    }
+  ]
+}
