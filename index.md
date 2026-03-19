@@ -40,6 +40,7 @@ Backup of Claude Code agents, commands, and skills.
 
 | Skill | Folder |
 |---|---|
+| Article Pricing Links | [skills/article-pricing-links/](./skills/article-pricing-links/) |
 | Excalidraw Diagram | [skills/excalidraw-diagram/](./skills/excalidraw-diagram/) |
 | Handoff | [skills/handoff/](./skills/handoff/) |
 | NotebookLM | [skills/notebooklm/](./skills/notebooklm/) |
