@@ -1,0 +1,25 @@
+{
+  "skill_name": "youtube",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "/youtube https://www.youtube.com/@JulianGoldieSEO taster",
+      "expected_output": "A taster-mode audit showing channel overview, top 10 videos table, performance tiers, 3-5 key insights with specific numbers, content saturation score, upload strategy headline, 3 SEO problems identified (with data but NO fixes), projected impact headline, and a teaser box advertising the full audit. Should NOT include title rewrites, description templates, tag templates, keyword opportunities, competitor benchmarking, or any suggested fixes.",
+      "files": [],
+      "assertions": [
+        {"id": "channel-overview", "text": "Report contains a Channel Overview table with subscriber count, average views, and median views"},
+        {"id": "top-videos-table", "text": "Report contains a Top 10 Videos table with at least 5 video rows including views, views/day, and engagement data"},
+        {"id": "performance-tiers", "text": "Report categorises videos into performance tiers (Hit/Solid/Underperformer) with specific video names listed"},
+        {"id": "data-driven-insights", "text": "Report contains 3 or more key insights with specific numbers"},
+        {"id": "saturation-score", "text": "Report contains a Content Saturation Score between 1 and 5 with topic groupings shown"},
+        {"id": "seo-problems", "text": "Report identifies exactly 3 SEO Problems with supporting data but NOT the fix"},
+        {"id": "no-title-rewrites", "text": "Report does NOT contain title rewrites or suggested rewrites"},
+        {"id": "no-description-template", "text": "Report does NOT contain a description template"},
+        {"id": "no-keyword-opportunities", "text": "Report does NOT contain keyword opportunities or competitor benchmarking"},
+        {"id": "teaser-box", "text": "Report contains a teaser/CTA box advertising the full audit"},
+        {"id": "projected-impact", "text": "Report contains a projected impact headline number"},
+        {"id": "upload-strategy-headline", "text": "Report mentions upload strategy as headline but does NOT recommend a specific pace"}
+      ]
+    }
+  ]
+}

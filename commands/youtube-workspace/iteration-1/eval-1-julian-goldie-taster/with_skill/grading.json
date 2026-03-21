@@ -1,0 +1,70 @@
+{
+  "eval_id": 1,
+  "eval_name": "julian-goldie-taster",
+  "variant": "with_skill",
+  "expectations": [
+    {
+      "text": "Report contains a Channel Overview table with subscriber count, average views, and median views",
+      "passed": true,
+      "evidence": "Channel Overview table present with 300K subscribers, avg views 4,820, median views 2,350"
+    },
+    {
+      "text": "Report contains a Top 10 Videos table with at least 5 video rows including views, views/day, and engagement data",
+      "passed": true,
+      "evidence": "Top 10 Videos table has 10 rows with Views, Views/Day, Engagement %, Duration, Uploaded, and Link columns"
+    },
+    {
+      "text": "Report categorises videos into performance tiers (Hit/Solid/Underperformer) with specific video names listed",
+      "passed": true,
+      "evidence": "Performance Tiers section with Hit (10 videos named with multipliers like '19.3x median'), Solid (~28 videos), Underperformer (~19 videos)"
+    },
+    {
+      "text": "Report contains 3 or more key insights with specific numbers",
+      "passed": true,
+      "evidence": "5 numbered insights, each with specific data: 'average 28,600 views -- 5.9x the channel average', '84 Videos in 14 Days (~6/day)', 'highest engagement rate at 5.8%', '4,600 views/day', '7 titles contain specific numbers'"
+    },
+    {
+      "text": "Report contains a Content Saturation Score between 1 and 5 with topic groupings shown",
+      "passed": true,
+      "evidence": "Content Saturation Score: 4/5 (Heavily Repetitive) with table showing 8 topic groups with video counts and avg views"
+    },
+    {
+      "text": "Report identifies exactly 3 SEO Problems with supporting data but NOT the fix",
+      "passed": true,
+      "evidence": "3 problems: (1) 18 OpenClaw videos, 62% fewer views by 5th video, (2) 83% missing chapters, 29.5% AI Overview stat, (3) keyword buried after char 40 with truncation example. No fixes provided for any."
+    },
+    {
+      "text": "Report does NOT contain title rewrites or suggested rewrites",
+      "passed": true,
+      "evidence": "No title rewrites or 'Suggested rewrite' text found anywhere in the report"
+    },
+    {
+      "text": "Report does NOT contain a description template",
+      "passed": true,
+      "evidence": "No description template or description scorecard found in the report"
+    },
+    {
+      "text": "Report does NOT contain keyword opportunities or competitor benchmarking",
+      "passed": true,
+      "evidence": "No keyword opportunities table or competitor benchmarking section present"
+    },
+    {
+      "text": "Report contains a teaser/CTA box advertising the full audit with a list of what it includes",
+      "passed": true,
+      "evidence": "Teaser box present: 'Want the full audit? The complete SEO audit covers 60+ ranking factors including:' followed by 13 bullet points and contact line"
+    },
+    {
+      "text": "Report contains a projected impact headline number estimating potential view uplift",
+      "passed": true,
+      "evidence": "'You're potentially leaving ~120,000-200,000 views/month on the table.' with note to get full audit for breakdown"
+    },
+    {
+      "text": "Report mentions upload strategy as headline but does NOT recommend a specific pace",
+      "passed": true,
+      "evidence": "Upload Strategy section states 'Publishing ~6 videos/day is likely cannibalising per-video performance' with data about 0.78% subscriber reach vs 3-5% benchmark, but does NOT recommend a specific upload frequency"
+    }
+  ],
+  "pass_rate": 1.0,
+  "total_passed": 12,
+  "total_assertions": 12
+}
