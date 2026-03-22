@@ -1,0 +1,388 @@
+/* Wayne Pearce — Brand Theme for WeasyPrint PDFs
+ * Dense layout — maximise content per page, minimal whitespace.
+ * Updated 2026-03-22: tighter margins, compact spacing, inline visualisations.
+ *
+ * Usage:
+ *   <link rel="stylesheet" href="wayne_brand.css">
+ *   — OR —
+ *   Inline with: {% include "wayne_brand.css" %}
+ *
+ * Works with WeasyPrint's CSS3 engine: flexbox, @page, counters, etc.
+ */
+
+/* ============================================================
+   VARIABLES — change these to rebrand everything at once
+   ============================================================ */
+:root {
+    --brand-primary:   #1E2761;   /* Deep navy */
+    --brand-secondary: #2B6CB0;   /* Bright blue */
+    --brand-accent:    #38A169;   /* Green accent */
+    --brand-warning:   #D69E2E;   /* Amber warning */
+    --brand-danger:    #E53E3E;   /* Red danger */
+    --brand-bg:        #FFFFFF;
+    --brand-bg-alt:    #F7FAFC;   /* Light gray alt rows / cards */
+    --brand-border:    #E2E8F0;
+    --brand-text:      #2D3748;
+    --brand-text-muted:#718096;
+
+    --font-heading:    Georgia, 'Times New Roman', serif;
+    --font-body:       -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Calibri', sans-serif;
+    --font-mono:       'Consolas', 'Monaco', monospace;
+}
+
+/* ============================================================
+   GLOBAL RESET & BASE — dense defaults
+   ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-body);
+    font-size: 9.5pt;
+    line-height: 1.4;
+    color: var(--brand-text);
+    background: var(--brand-bg);
+}
+
+/* ============================================================
+   PAGE SETUP — tight margins for dense layout
+   ============================================================ */
+@page {
+    size: A4;
+    margin: 10mm 20mm 10mm 20mm;
+
+    @bottom-center {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: var(--font-body);
+        font-size: 7pt;
+        color: var(--brand-text-muted);
+    }
+    @bottom-right {
+        content: "calibre.ai";
+        font-family: var(--font-body);
+        font-size: 7pt;
+        color: var(--brand-text-muted);
+    }
+}
+
+@page :first {
+    @bottom-center { content: none; }
+    @bottom-right { content: none; }
+}
+
+/* ============================================================
+   HEADER BAR — page-level title strip
+   ============================================================ */
+.header-bar {
+    background: var(--brand-primary);
+    color: white;
+    padding: 10px 14px;
+    margin: -2mm -2mm 6px -2mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-bar h1 {
+    font-size: 14pt;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+.header-bar .date {
+    font-size: 8pt;
+    opacity: 0.8;
+}
+
+/* ============================================================
+   COVER PAGE — only page that uses generous spacing
+   ============================================================ */
+.cover {
+    text-align: center;
+    padding-top: 2.5in;
+    page-break-after: always;
+}
+.cover h1 {
+    font-family: var(--font-heading);
+    font-size: 34pt;
+    color: var(--brand-primary);
+    margin-bottom: 0.15em;
+    letter-spacing: -0.5px;
+}
+.cover .subtitle {
+    font-size: 16pt;
+    color: var(--brand-secondary);
+    margin-bottom: 1.2em;
+}
+.cover .meta {
+    font-size: 10pt;
+    color: var(--brand-text-muted);
+    margin-bottom: 0.3em;
+}
+.cover .bar {
+    width: 80px;
+    height: 4px;
+    background: var(--brand-secondary);
+    margin: 1.5em auto;
+    border-radius: 2px;
+}
+.cover .logo {
+    max-width: 120px;
+    margin-bottom: 1em;
+}
+
+/* ============================================================
+   HEADINGS — compact margins
+   ============================================================ */
+h1 { font-family: var(--font-heading); font-size: 18pt; color: var(--brand-primary); margin-top: 0.8em; margin-bottom: 0.3em; }
+h2 { font-family: var(--font-heading); font-size: 13pt; color: var(--brand-primary); border-bottom: 2px solid var(--brand-secondary); padding-bottom: 0.2em; margin-top: 0.8em; margin-bottom: 0.3em; }
+h3 { font-family: var(--font-heading); font-size: 11pt; color: var(--brand-secondary); margin-top: 0.6em; margin-bottom: 0.2em; }
+h4 { font-size: 10pt; color: var(--brand-primary); font-weight: 700; margin-top: 0.5em; margin-bottom: 0.2em; }
+
+p { margin-bottom: 0.4em; }
+
+/* Section title — thin divider style */
+.section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    color: var(--brand-primary);
+    border-bottom: 1.5px solid var(--brand-secondary);
+    padding-bottom: 1px;
+    margin: 6px 0 3px 0;
+}
+
+/* ============================================================
+   KPI CARDS — compact row
+   ============================================================ */
+.kpi-row {
+    display: flex;
+    gap: 6px;
+    margin: 4px 0 6px 0;
+}
+.kpi-card {
+    flex: 1;
+    background: var(--brand-bg-alt);
+    border: 1px solid var(--brand-border);
+    border-radius: 5px;
+    padding: 8px 6px;
+    text-align: center;
+}
+.kpi-value {
+    font-family: var(--font-heading);
+    font-size: 18pt;
+    font-weight: 800;
+    color: var(--brand-primary);
+    line-height: 1.1;
+}
+.kpi-label {
+    font-size: 7pt;
+    color: var(--brand-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-top: 1px;
+}
+.kpi-delta { font-size: 7.5pt; margin-top: 2px; }
+.kpi-delta.up { color: var(--brand-accent); }
+.kpi-delta.down { color: var(--brand-danger); }
+
+/* ============================================================
+   TABLES — dense padding
+   ============================================================ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.5pt;
+    margin: 4px 0 8px 0;
+}
+th {
+    background: var(--brand-primary);
+    color: white;
+    padding: 5px 8px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+td {
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--brand-border);
+}
+tr:nth-child(even) td {
+    background: var(--brand-bg-alt);
+}
+
+/* ============================================================
+   INLINE BARS — CSS progress bars inside table cells
+   ============================================================ */
+.bar-fill {
+    display: inline-block;
+    height: 10px;
+    background: var(--brand-secondary);
+    border-radius: 2px;
+    vertical-align: middle;
+}
+.bar-fill.green { background: var(--brand-accent); }
+.bar-fill.amber { background: var(--brand-warning); }
+.bar-fill.red { background: var(--brand-danger); }
+.bar-label {
+    font-size: 7.5pt;
+    color: var(--brand-text-muted);
+    margin-left: 4px;
+}
+
+/* ============================================================
+   CALLOUTS — compact
+   ============================================================ */
+.callout {
+    background: #EBF8FF;
+    border-left: 3px solid var(--brand-secondary);
+    padding: 5px 10px;
+    margin: 4px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 8pt;
+}
+.callout strong { color: var(--brand-primary); }
+
+.callout-success { background: #F0FFF4; border-left-color: var(--brand-accent); }
+.callout-success strong { color: #22543D; }
+
+.callout-warn { background: #FFFBEB; border-left-color: var(--brand-warning); }
+.callout-warn strong { color: #744210; }
+
+.callout-danger { background: #FFF5F5; border-left-color: var(--brand-danger); }
+.callout-danger strong { color: #742A2A; }
+
+/* ============================================================
+   LAYOUT HELPERS — tight gaps
+   ============================================================ */
+.two-col { display: flex; gap: 8px; margin: 4px 0; }
+.two-col > div { flex: 1; }
+
+.three-col { display: flex; gap: 8px; margin: 4px 0; }
+.three-col > div { flex: 1; }
+
+.section-break { page-break-before: always; }
+.keep-together { page-break-inside: avoid; }
+.no-break { page-break-inside: avoid; }
+
+/* ============================================================
+   CATEGORY LABELS
+   ============================================================ */
+.cat-label {
+    display: inline-block;
+    background: var(--brand-primary);
+    color: white;
+    font-size: 7.5pt;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin: 6px 0 3px 0;
+}
+
+/* ============================================================
+   STATUS BADGES
+   ============================================================ */
+.badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-size: 7pt;
+    font-weight: 600;
+}
+.badge-done, .badge-ok { background: #C6F6D5; color: #22543D; }
+.badge-wip, .badge-warn { background: #FEFCBF; color: #744210; }
+.badge-blocked, .badge-error { background: #FED7D7; color: #742A2A; }
+.badge-new  { background: #BEE3F8; color: #2A4365; }
+
+/* ============================================================
+   UTILITY COLORS
+   ============================================================ */
+.green { color: var(--brand-accent); }
+.red   { color: var(--brand-danger); }
+.blue  { color: var(--brand-secondary); }
+.muted { color: var(--brand-text-muted); }
+.bold  { font-weight: 700; }
+
+/* ============================================================
+   LISTS — compact
+   ============================================================ */
+ul, ol { padding-left: 1.2em; margin-bottom: 0.4em; }
+li { margin-bottom: 0.2em; }
+
+/* ============================================================
+   CODE
+   ============================================================ */
+code {
+    font-family: var(--font-mono);
+    font-size: 8.5pt;
+    background: #EDF2F7;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+pre {
+    font-family: var(--font-mono);
+    font-size: 8.5pt;
+    background: #1A202C;
+    color: #E2E8F0;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin: 4px 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer-bar {
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1.5px solid var(--brand-border);
+    font-size: 7.5pt;
+    color: var(--brand-text-muted);
+    text-align: center;
+}
+.footer-block {
+    background: var(--brand-bg-alt);
+    border: 1px solid var(--brand-border);
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin-top: 6px;
+    text-align: center;
+    font-size: 7.5pt;
+    color: var(--brand-text-muted);
+}
+.footer-block .brand {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--brand-primary);
+    margin-bottom: 2px;
+}
+
+/* ============================================================
+   FUNNEL DIAGRAM
+   ============================================================ */
+.funnel { margin: 4px 0; }
+.funnel-step { display: flex; align-items: center; margin: 2px 0; }
+.funnel-bar {
+    height: 16px;
+    background: var(--brand-secondary);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
+    color: white;
+    font-size: 7pt;
+    font-weight: 600;
+}
+.funnel-label { font-size: 7pt; color: var(--brand-muted); margin-left: 6px; white-space: nowrap; }
+.funnel-arrow { text-align: center; color: var(--brand-muted); font-size: 7pt; margin: 1px 0 1px 16px; }
+
+/* ============================================================
+   SUMMARY TEXT
+   ============================================================ */
+.summary {
+    font-size: 9pt;
+    line-height: 1.4;
+    margin: 4px 0 6px 0;
+}
