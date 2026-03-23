@@ -1,6 +1,14 @@
 {
-  "lastUpdated": 1774200395558,
+  "lastUpdated": 1774290482609,
   "skills": [
+    {
+      "skillId": "skill_01RFG6ujoExfdVDbV4RQczpL",
+      "name": "gemini-toolkit",
+      "description": "Use the Gemini MCP tools for image generation, image editing, vision/image description, cheap text generation, text-to-speech, and embeddings. Trigger this skill whenever the user asks to generate an image, create a picture, edit a photo, describe or analyse an image, convert text to speech, read something aloud, generate embeddings, or mentions \"Gemini\" in the context of any of these tasks. Also trigger when the user says \"make me an image\", \"draw\", \"picture of\", \"what's in this image\", \"describe this photo\", \"read this out\", \"speak this\", \"TTS\", or asks for cheap/fast text generation via Gemini rather than Claude. Even casual requests like \"get me an image of a blue dog\" or \"what does this picture show\" should trigger this skill.",
+      "creatorType": "user",
+      "updatedAt": "2026-03-23T17:48:39.709147Z",
+      "enabled": true
+    },
     {
       "skillId": "skill_01RtL2v7GxkyB8s7XAEd2xbB",
       "name": "pdf-designer",
