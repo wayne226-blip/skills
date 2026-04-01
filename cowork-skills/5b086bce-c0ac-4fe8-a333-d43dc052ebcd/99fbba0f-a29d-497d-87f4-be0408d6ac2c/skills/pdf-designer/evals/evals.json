@@ -1,0 +1,23 @@
+{
+  "skill_name": "pdf-designer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a PDF report for a client called 'Riverside Dental' showing the results of an SEO audit. Include some KPI cards at the top (domain authority 34, organic traffic 2,100/mo, page speed score 67, backlinks 89), a section on keyword gaps, a table of top 10 keyword opportunities with columns for keyword, volume, difficulty, and current rank, and recommendations. Make it look professional — this is going to a client.",
+      "expected_output": "A polished PDF using the executive or corporate theme with cover page, KPI cards, well-formatted table, callout boxes for key recommendations, proper page numbers, and professional typography.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I need a quick internal report PDF for my own records. It's a monthly review of my calibre.ai project — what I built this month, metrics (3 clients onboarded, £2,400 revenue, 12 discovery calls), what's planned next month, and blockers. Keep it clean and modern.",
+      "expected_output": "A clean PDF using the modern theme with a simple cover, KPI cards for the 3 metrics, content sections for achievements/plans/blockers, and minimal but effective design.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Make me a PDF dashboard showing analytics for a social media campaign. The campaign ran across Instagram and LinkedIn for 'TechFlow Solutions'. Key stats: 45K impressions, 3.2K engagements, 2.8% engagement rate, 156 link clicks, 23 leads generated. Break it down by platform. Include a recommendations section. Make it look creative and eye-catching — the marketing team will be presenting this.",
+      "expected_output": "A visually striking PDF using the creative theme with gradient cover page, KPI cards with different accent colours, platform comparison in two-column layout, gradient-box for key highlights, and bold typography.",
+      "files": []
+    }
+  ]
+}

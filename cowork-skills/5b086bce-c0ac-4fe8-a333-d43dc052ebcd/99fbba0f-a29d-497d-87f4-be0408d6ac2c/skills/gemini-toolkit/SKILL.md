@@ -1,11 +1,11 @@
 ---
 name: gemini-toolkit
-description: Use the Gemini MCP tools for image generation, image editing, video generation (Veo3), vision/image description, video understanding, video compression, cheap text generation, text-to-speech, and embeddings. Trigger this skill whenever the user asks to generate an image, create a picture, edit a photo, generate a video, describe or analyse an image or video, understand a video, compress a video, convert text to speech, read something aloud, generate embeddings, or mentions "Gemini" in the context of any of these tasks. Also trigger when the user says "make me an image", "draw", "picture of", "make a video", "generate a video", "Veo", "Veo3", "what's in this image", "describe this photo", "what's in this video", "analyse this video", "compress this video", "read this out", "speak this", "TTS", or asks for cheap/fast text generation via Gemini rather than Claude. Even casual requests like "get me an image of a blue dog", "what does this picture show", "what happens in this video", or "make me a video of X" should trigger this skill.
+description: Use the Gemini MCP tools for image generation, image editing, vision/image description, video understanding, video compression, cheap text generation, text-to-speech, and embeddings. Trigger this skill whenever the user asks to generate an image, create a picture, edit a photo, describe or analyse an image or video, understand a video, compress a video, convert text to speech, read something aloud, generate embeddings, or mentions "Gemini" in the context of any of these tasks. Also trigger when the user says "make me an image", "draw", "picture of", "what's in this image", "describe this photo", "what's in this video", "analyse this video", "compress this video", "read this out", "speak this", "TTS", or asks for cheap/fast text generation via Gemini rather than Claude. Even casual requests like "get me an image of a blue dog", "what does this picture show", or "what happens in this video" should trigger this skill.
 ---
 
 # Gemini Toolkit
 
-Guide for using the Gemini MCP server — 10 tools that give you image generation, image editing, video generation (Veo3), vision, video understanding, video compression, cheap text, TTS, and embeddings through Google's Gemini API.
+Guide for using the Gemini MCP server — 9 tools that give you image generation, image editing, vision, video understanding, video compression, cheap text, TTS, and embeddings through Google's Gemini API.
 
 The MCP tools are prefixed `mcp__gemini__`. This skill tells you when to use each one and how to get the best results.
 
@@ -22,7 +22,6 @@ Pick the right tool based on what the user needs:
 | Generate an image from a description | `gemini_generate_image` | Default model is fast and free. Specify aspect_ratio for non-square. |
 | Edit/modify an existing image | `gemini_edit_image` | Pass the image file path + natural language instruction. |
 | Describe, analyse, or ask about an image | `gemini_describe_image` | Accepts local file paths AND URLs. Use the `question` param for specific queries. Supports OCR, object detection, visual Q&A. |
-| **Generate a video from a description** | `gemini_generate_video` | **EXPENSIVE — only use when explicitly asked.** Veo3 with audio. Takes 1-3 min. |
 | Analyse or ask about a video | `gemini_describe_video` | Accepts local video files AND YouTube URLs. Supports timestamp clipping. |
 | Compress a video file | `gemini_compress_video` | Uses ffmpeg. Targets a file size (default 20MB). Useful before uploading large videos. |
 | Quick/cheap text generation | `gemini_text` | Uses Gemini's cheapest model. Good for tasks where Claude itself is overkill or when you need a second opinion. |
@@ -56,12 +55,6 @@ Models are grouped by generation. Newer isn't always better — pick based on th
 | `gemini-2.5-flash-lite` | **MCP default.** Cheapest and fastest. Good for simple tasks. |
 | `gemini-2.5-flash` | Mid-tier. Better reasoning than lite. |
 | `gemini-2.5-pro` | Most capable 2.5 model. Complex tasks. |
-
-### Video Generation Models (Veo)
-| Model | Use case |
-|---|---|
-| `veo-3.0-generate-preview` | **MCP default.** Veo3 — best quality, generates synchronised audio. Expensive. |
-| `veo-2.0-generate-001` | Veo2 — cheaper, no audio generation. |
 
 ### Other Models
 | Model | Use case |
@@ -136,50 +129,6 @@ The edit tool works by passing an existing image plus a natural language instruc
 The instruction should describe the change, not the final result. "Make the background blue" works better than "An image with a blue background."
 
 All generated images include a SynthID watermark (invisible digital watermark from Google).
-
----
-
-## Video Generation (Veo3)
-
-**COST WARNING:** Video generation is expensive — no free tier. Only use when the user explicitly asks for a video. Never auto-trigger or suggest proactively.
-
-Generate videos from text prompts using Google's Veo3 model. Supports synchronised audio generation — the model creates sound effects, ambient audio, and even dialogue that matches the visual content.
-
-### Parameters
-
-| Parameter | Default | Notes |
-|---|---|---|
-| `prompt` | (required) | What to generate. Descriptive natural language works best. |
-| `model` | `veo-3.0-generate-preview` | Veo3 (with audio). Alt: `veo-2.0-generate-001` (cheaper, no audio). |
-| `aspect_ratio` | `16:9` | Also supports `9:16` (vertical/mobile) and `1:1` (square). |
-| `duration_seconds` | `8` | Video length: 5-8 seconds. |
-| `generate_audio` | `true` | Synchronised audio (Veo3 only). Set `false` for silent video. |
-| `negative_prompt` | `""` | What to avoid (e.g. "blurry, low quality, text overlays"). |
-| `enhance_prompt` | `true` | Let the model improve your prompt for better results. |
-| `person_generation` | `allow_all` | Set to `dont_allow` to block people in the video. |
-
-### How It Works
-
-Unlike image generation (which returns instantly), video generation is a long-running operation:
-
-1. The request is submitted to Google's servers
-2. The tool polls every 10 seconds until the video is ready
-3. Typically takes **1-3 minutes** to complete
-4. Times out after 5 minutes if something goes wrong
-5. The finished MP4 is saved to `~/Claude/gemini-output/`
-
-### Prompt Tips
-
-- **Describe the scene cinematically** — "A drone shot tracking over misty green hills at golden hour" works better than "hills"
-- **Include camera movement** — pan, zoom, tracking shot, dolly, crane, handheld
-- **Specify mood and lighting** — "warm sunset glow", "cold blue fluorescent", "dramatic shadows"
-- **Audio cues** — Veo3 generates audio from the visual context, but you can guide it: "a bustling cafe with clinking cups and quiet conversation"
-- **Keep it focused** — 8 seconds is short. One clear action or scene, not a narrative
-
-### Model Choice
-
-- **`veo-3.0-generate-preview`** (default) — Best quality. Generates synchronised audio. Most expensive.
-- **`veo-2.0-generate-001`** — Cheaper. No audio generation. Good for visual-only content where you'll add your own soundtrack.
 
 ---
 

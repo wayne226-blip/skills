@@ -1,0 +1,93 @@
+{
+  "lastUpdated": 1772792692918,
+  "skills": [
+    {
+      "skillId": "skill_01XtngBDZTYdDayk17qQFwCL",
+      "name": "frontend-king-mode",
+      "description": "A \"God Mode\" system instruction, skill, mode, rule, or simply the first prompt to begin a vibecoded app.",
+      "creatorType": "user",
+      "updatedAt": "2026-03-05T20:18:58.556037Z",
+      "enabled": true
+    },
+    {
+      "skillId": "skill_0157WG5VaDuLP6fxTEK5391h",
+      "name": "parallel-research",
+      "description": "Deep-dive research on any broad topic by automatically splitting it into 10 focused subtopics and researching each one simultaneously with a dedicated agent. Use this skill whenever the user asks for comprehensive research, wants to thoroughly explore a subject from multiple angles, or needs broad coverage of a topic quickly. Trigger on phrases like \"research [topic]\", \"find out everything about\", \"give me a deep dive on\", \"I need comprehensive research on\", \"explore all aspects of\", or any time the user wants to cover a topic exhaustively rather than superficially. Also trigger when the user explicitly mentions using multiple agents, parallel research, or wants ten agents. Even when a user just says \"research X for me\" — use this skill.",
+      "creatorType": "user",
+      "updatedAt": "2026-03-05T00:06:20.840980Z",
+      "enabled": true
+    },
+    {
+      "skillId": "skill_018zTP3X7FKN81hoAChu2Pyu",
+      "name": "email-tone-rewriter",
+      "description": "Rewrites draft emails in multiple tones — direct, warm, formal, and assertive — to help the user pick the version that fits their situation. Use this skill whenever the user pastes or describes an email and wants it rewritten, improved, or adjusted in tone. Trigger on phrases like \"rewrite this email\", \"make this email more professional\", \"soften this message\", \"make this more direct\", \"help me say this differently\", \"how should I word this email\", or any time the user shares email text and wants tonal or stylistic alternatives. Also trigger when the user wants to send a tricky, sensitive, or high-stakes message and isn't sure how to phrase it — even if they don't explicitly say \"tone\". If there's an email in the conversation and the user wants help with it, use this skill.",
+      "creatorType": "user",
+      "updatedAt": "2026-03-04T23:09:07.730773Z",
+      "enabled": true
+    },
+    {
+      "skillId": "skill_013Jehg56kY4WjBapdL7XkZR",
+      "name": "reddit-skill",
+      "description": "Use this skill whenever the user wants to search Reddit, browse subreddits, read post comments, or research what people are saying about a topic on Reddit. Trigger on any mention of \"Reddit\", \"subreddit\", \"r/\", posts, threads, or upvotes. Also trigger when the user wants to research a topic and understand public opinion, community discussion, or trending conversations — even if they don't say \"Reddit\" explicitly. Use this skill for tasks like: \"what does Reddit think about X\", \"find me the top posts in r/investing\", \"summarise the comments on this Reddit thread\", \"research what people say about Y\", or \"pull posts from r/technology this week\". If the user wants data from Reddit in any form, use this skill.",
+      "creatorType": "user",
+      "updatedAt": "2026-03-04T22:37:29.046547Z",
+      "enabled": true
+    },
+    {
+      "skillId": "skill_01CJTZ4H3TuFpzLQmKk8efHJ",
+      "name": "json-image-gen",
+      "description": "Build structured JSON prompts for AI image generation, optimized for Google's Nano Banana 2 (Gemini 3.1 Flash Image Preview) and compatible models. Use this skill whenever the user wants to create an image prompt, generate a JSON prompt for image generation, build a structured prompt for Nano Banana / Gemini image models, or asks for help crafting prompts for AI image generation. Also trigger when the user mentions \"image JSON\", \"structured image prompt\", \"Nano Banana\", \"Gemini image\", or wants to convert a natural-language image idea into a precise, repeatable JSON format. Even if they just say \"make me an image prompt\" or \"help me describe a scene for AI art\" — use this skill.",
+      "creatorType": "user",
+      "updatedAt": "2026-03-04T20:46:32.324150Z",
+      "enabled": true
+    },
+    {
+      "skillId": "skill-creator",
+      "name": "skill-creator",
+      "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
+      "creatorType": "anthropic",
+      "updatedAt": "2026-02-27T00:50:40.580605Z",
+      "enabled": true
+    },
+    {
+      "skillId": "xlsx",
+      "name": "xlsx",
+      "description": "**Excel Spreadsheet Handler**: Comprehensive Microsoft Excel (.xlsx) document creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization\n  - MANDATORY TRIGGERS: Excel, spreadsheet, .xlsx, data table, budget, financial model, chart, graph, tabular data, xls\n",
+      "creatorType": "anthropic",
+      "updatedAt": "2026-02-03T15:09:44.321438Z",
+      "enabled": true
+    },
+    {
+      "skillId": "pptx",
+      "name": "pptx",
+      "description": "Use this skill any time a .pptx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, parsing, or extracting text from any .pptx file (even if the extracted content will be used elsewhere, like in an email or summary); editing, modifying, or updating existing presentations; combining or splitting slide files; working with templates, layouts, speaker notes, or comments. Trigger whenever the user mentions \"deck,\" \"slides,\" \"presentation,\" or references a .pptx filename, regardless of what they plan to do with the content afterward. If a .pptx file needs to be opened, created, or touched, use this skill.",
+      "creatorType": "anthropic",
+      "updatedAt": "2026-03-04T20:23:13.689841Z",
+      "enabled": true
+    },
+    {
+      "skillId": "pdf",
+      "name": "pdf",
+      "description": "**PDF Processing**: Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms.\n  - MANDATORY TRIGGERS: PDF, .pdf, form, extract, merge, split\n",
+      "creatorType": "anthropic",
+      "updatedAt": "2026-02-03T15:09:44.302893Z",
+      "enabled": true
+    },
+    {
+      "skillId": "docx",
+      "name": "docx",
+      "description": "Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', or requests to produce professional documents with formatting like tables of contents, headings, page numbers, or letterheads. Also use when extracting or reorganizing content from .docx files, inserting or replacing images in documents, performing find-and-replace in Word files, working with tracked changes or comments, or converting content into a polished Word document. If the user asks for a 'report', 'memo', 'letter', 'template', or similar deliverable as a Word or .docx file, use this skill. Do NOT use for PDFs, spreadsheets, Google Docs, or general coding tasks unrelated to document generation.",
+      "creatorType": "anthropic",
+      "updatedAt": "2026-03-04T20:23:13.681096Z",
+      "enabled": true
+    },
+    {
+      "skillId": "schedule",
+      "name": "schedule",
+      "description": "Create a scheduled task that can be run on demand or automatically on an interval.",
+      "creatorType": "anthropic",
+      "updatedAt": null,
+      "enabled": true
+    }
+  ]
+}
