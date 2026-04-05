@@ -45,6 +45,24 @@ Dark romance, paranormal, sports romance, historical.
 20-30 images of the SAME character across different scenarios.
 Use same seed base + face description for consistency.
 
+## Prompt Guide
+
+**Always read the genre prompt guide before building prompts:**
+`~/calibre-hq/authors/vivienne-cole/prompt-guide.md`
+
+This contains tested templates for all 41 content categories with lighting, camera, and pose keywords.
+
+**Prompt structure formula:**
+`[Character: age, hair, body, skin] + [Clothing/state] + [Pose/action] + [Setting] + [Lighting] + [Camera angle] + [Mood]`
+
+**Key rules:**
+- Use `(feature:1.2-1.3)` weights — never above 1.5
+- For mature characters always include physical age markers: `(crow's feet, laugh lines, natural aging:1.3)` — not just "age 50"
+- Add camera terms: `85mm lens`, `shot from below`, `POV angle`, `shallow depth of field`
+- Keep prompts under 75 tokens — overloading degrades output
+- For multi-person: use BREAK between characters and `(N distinct people:1.3)`
+- Don't use "masterpiece", "best quality", "8k" — EpiCRealism ignores these
+
 ## Building a Batch
 
 Create the batch JSON at `~/calibre-hq/comfyui-engine/batch_jobs/`:

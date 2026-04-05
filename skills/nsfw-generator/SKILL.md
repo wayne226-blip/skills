@@ -91,14 +91,25 @@ python3 generate.py --batch batch_jobs/your-batch.json
 - 20-image batch: ~17 minutes
 - 60-image batch: ~50 minutes
 
-## Tips for Better Results
+## Prompt Guide
 
-**NSFW prompts that work well with epiCRealism:**
-- Be specific about body type, hair, eyes, skin tone
-- Describe the setting/lighting (boudoir, bedroom, shower, outdoor)
-- Use photography terms: "shallow depth of field", "golden hour", "rim lighting"
-- Include quality tokens: "masterpiece, best quality, detailed skin texture"
-- For explicit: be direct — the model has no filter
+**Always read the full genre prompt guide before writing prompts:**
+`~/calibre-hq/authors/vivienne-cole/prompt-guide.md`
+
+Contains tested templates for all 41 Vivienne Cole content categories.
+
+**Prompt structure formula:**
+`[Character: age, hair, body, skin] + [Clothing/state] + [Pose/action] + [Setting] + [Lighting] + [Camera angle] + [Mood]`
+
+**EpiCRealism-specific rules:**
+- CFG is set to 5.0 (not 7) — the model oversaturates above 7
+- Sampler is DPM++ SDE Karras — best for skin detail with this model
+- Do NOT use "masterpiece", "best quality", "8k" — EpiCRealism ignores these, they waste tokens
+- DO use camera terms: `85mm lens`, `DSLR`, `shallow depth of field`, `Kodachrome`
+- Use `(feature:1.2-1.3)` weights for emphasis — never above 1.5
+- For mature characters: always include physical markers `(crow's feet, laugh lines, natural aging:1.3)` — not just "age 50"
+- For multi-person: use BREAK between characters and `(N distinct people:1.3)`
+- Keep prompts under 75 tokens — overloading degrades output
 
 **Negative prompt is pre-loaded per preset.** Override with `--negative "your negatives"`.
 
