@@ -1,5 +1,5 @@
 {
-  "lastUpdated": 1775495571466,
+  "lastUpdated": 1775754587413,
   "skills": [
     {
       "skillId": "skill_01RFG6ujoExfdVDbV4RQczpL",
@@ -293,6 +293,14 @@
       "skillId": "schedule",
       "name": "schedule",
       "description": "Create a scheduled task that can be run on demand or automatically on an interval.",
+      "creatorType": "anthropic",
+      "updatedAt": null,
+      "enabled": true
+    },
+    {
+      "skillId": "setup-cowork",
+      "name": "setup-cowork",
+      "description": "Guided Cowork setup — install a matching plugin, try a skill, connect tools.",
       "creatorType": "anthropic",
       "updatedAt": null,
       "enabled": true
