@@ -9,7 +9,7 @@ Help the user get Cowork configured for their work. A few steps — role, plugin
 
 ## Step 1 — Role
 
-Your initial message should frame what Cowork is: it reads your email, searches your docs, drafts reports, and keeps going while you're away, etc. Educate the user on *Skills*, reusable workflows you run with `/name`; *Plugins* bundle skills for a domain / use case; *Connectors* wire in your tools." Two or three sentences. Hit the beats: multi-step and autonomous, uses your real tools, skills/plugins/connectors defined.
+Your initial message should frame what Cowork is: it autonomously handles tasks like reading your email, searching your docs, drafting reports, etc. Educate the user on *Skills*, reusable workflows you run with `/name`; *Plugins* bundle skills for a domain / use case; *Connectors* wire in your tools." Two or three sentences. Hit the beats: multi-step and autonomous, uses your real tools, skills/plugins/connectors defined.
 
 Next, ask the user for their role. Something like: "Let's get you set up — takes a few minutes. What kind of work do you do?" Then call the tool to show the onboarding role picker, which will display some roles to the user: do not list the roles yourself.
 
