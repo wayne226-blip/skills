@@ -1,0 +1,77 @@
+{
+  "skill_name": "notebooklm",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to research Claude Code automation — can you build me a notebook on it in NotebookLM, pull in some web sources, and give me a quick summary of what's there?",
+      "expected_output": "Creates a notebook titled something like 'Claude Code Automation', runs web research, imports sources, and returns a summary with notebook ID and source count. Offers next steps like generating a podcast or querying.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "calls-notebook-create",
+          "description": "Uses mcp__notebooklm__notebook_create or notebook_list to set up or locate a notebook"
+        },
+        {
+          "name": "runs-research-or-adds-sources",
+          "description": "Calls research_start or source_add to populate the notebook with sources"
+        },
+        {
+          "name": "returns-notebook-id",
+          "description": "The response includes a notebook ID"
+        },
+        {
+          "name": "provides-summary",
+          "description": "Gives a meaningful summary of what was found/added, not just a blank confirmation"
+        },
+        {
+          "name": "offers-next-steps",
+          "description": "Suggests what Wayne can do next (query, podcast, etc.)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "list my NotebookLM notebooks",
+      "expected_output": "Lists all existing notebooks with their titles, IDs, and source counts in a readable format.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "calls-notebook-list",
+          "description": "Calls mcp__notebooklm__notebook_list"
+        },
+        {
+          "name": "formatted-output",
+          "description": "Returns notebooks in a readable table or list format, not raw JSON"
+        },
+        {
+          "name": "shows-source-count",
+          "description": "Shows how many sources each notebook has"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "make a podcast from my most recently updated NotebookLM notebook",
+      "expected_output": "Finds the most recent notebook, kicks off audio generation (deep_dive format), polls until complete, and returns a listen URL.",
+      "files": [],
+      "assertions": [
+        {
+          "name": "finds-notebook",
+          "description": "Calls notebook_list to identify the most recently updated notebook"
+        },
+        {
+          "name": "calls-studio-create-audio",
+          "description": "Calls studio_create with artifact_type='audio'"
+        },
+        {
+          "name": "polls-for-completion",
+          "description": "Calls studio_status to check generation progress"
+        },
+        {
+          "name": "returns-url-or-status",
+          "description": "Returns a listen URL or clearly states the generation status"
+        }
+      ]
+    }
+  ]
+}
