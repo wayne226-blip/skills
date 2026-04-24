@@ -1,0 +1,22 @@
+[
+  {"query": "get me an image of a golden retriever wearing sunglasses on a beach, make it square for instagram", "should_trigger": true},
+  {"query": "can you read this paragraph out loud for me, something professional sounding: Our team at Morrison & Partners specialises in residential conveyancing across Greater London", "should_trigger": true},
+  {"query": "what's in this picture /Users/wayne/Downloads/site-photo-2026-03-15.jpg — is there any visible damage to the roof?", "should_trigger": true},
+  {"query": "I've got this photo of a house listing but the sky looks grey and miserable, can you make it look like a sunny day", "should_trigger": true},
+  {"query": "use gemini to summarise this text for me, keep it under 100 words: [long paragraph about planning regulations]", "should_trigger": true},
+  {"query": "generate an embedding for this product description so I can find similar ones later: Premium wool blend carpet tile, 50x50cm, charcoal grey, commercial grade", "should_trigger": true},
+  {"query": "draw me a quick logo concept — a minimalist house outline with the letters 'SP' inside, blue and white", "should_trigger": true},
+  {"query": "I need to convert some text to audio for a voiceover on a property tour video, about 3 paragraphs, male voice", "should_trigger": true},
+  {"query": "make me a picture of what a loft conversion might look like in a victorian terrace, birds eye view", "should_trigger": true},
+  {"query": "check what gemini models are available right now, I want to see if there's anything newer than flash", "should_trigger": true},
+  {"query": "write me a LinkedIn post about how AI is transforming the property market in East London", "should_trigger": false},
+  {"query": "can you resize this image to 800x600 and add a watermark with my company name", "should_trigger": false},
+  {"query": "I need to create a PowerPoint presentation for the client meeting on Thursday, about 12 slides covering the Q1 results", "should_trigger": false},
+  {"query": "plan a product photography shoot for this estate agent's website — hero shots, lifestyle scenes, the whole thing", "should_trigger": false},
+  {"query": "check my inbox for anything from the solicitors about the exchange date", "should_trigger": false},
+  {"query": "I want to build an MCP server that connects to the Rightmove API", "should_trigger": false},
+  {"query": "can you create an excalidraw diagram showing the client onboarding workflow", "should_trigger": false},
+  {"query": "open up my obsidian vault and find my notes on the Henderson property valuation", "should_trigger": false},
+  {"query": "help me craft an optimised prompt for generating product photos of these trainers — I need JSON structured prompts for Nano Banana", "should_trigger": false},
+  {"query": "set up a scheduled task that checks for new property listings every morning at 8am", "should_trigger": false}
+]

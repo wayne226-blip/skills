@@ -1,0 +1,50 @@
+{
+  "eval_name": "eval-2-gymshark-with_skill",
+  "expectations": [
+    {
+      "text": "Brand research/DNA document exists",
+      "passed": true,
+      "evidence": "Found at /Users/wayne/.claude/skills/ad-creative-workspace/iteration-1/eval-2-gymshark/with_skill/outputs/brand-dna.md"
+    },
+    {
+      "text": "Brand document has structured sections",
+      "passed": true,
+      "evidence": "Length: 4430 chars, structured: True"
+    },
+    {
+      "text": "Contains numbered template sections",
+      "passed": true,
+      "evidence": "Found 3 sections"
+    },
+    {
+      "text": "No unfilled [PLACEHOLDER] brackets",
+      "passed": true,
+      "evidence": "Found 0 placeholders"
+    },
+    {
+      "text": "Contains hex color codes (brand-specific)",
+      "passed": true,
+      "evidence": "Found 12 hex codes: ['#FFFFFF', '#000000', '#2BBFFF']"
+    },
+    {
+      "text": "Contains aspect ratio specifications",
+      "passed": true,
+      "evidence": "Found 3 ratio specs"
+    },
+    {
+      "text": "Substantial prompt detail (>1500 chars total)",
+      "passed": true,
+      "evidence": "Total length: 5479 chars"
+    },
+    {
+      "text": "References specific ad template formats",
+      "passed": true,
+      "evidence": "Found template refs: ['Us vs Them', 'Bold Statement', 'Post-It', 'Native']"
+    },
+    {
+      "text": "Brand name appears throughout (>=3 times)",
+      "passed": true,
+      "evidence": "'Gymshark' appears 13 times"
+    }
+  ]
+}
