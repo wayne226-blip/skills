@@ -1,5 +1,5 @@
 {
-  "lastUpdated": 1776100046264,
+  "lastUpdated": 1777482661397,
   "skills": [
     {
       "skillId": "skill_01RFG6ujoExfdVDbV4RQczpL",
@@ -198,7 +198,7 @@
       "name": "doc-coauthoring",
       "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
       "creatorType": "anthropic",
-      "updatedAt": "2026-04-02T22:38:54.467023Z",
+      "updatedAt": "2026-04-17T16:26:39.590829Z",
       "enabled": true
     },
     {
@@ -206,7 +206,7 @@
       "name": "web-artifacts-builder",
       "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
       "creatorType": "anthropic",
-      "updatedAt": "2026-04-02T22:38:54.559905Z",
+      "updatedAt": "2026-04-17T16:26:39.685034Z",
       "enabled": true
     },
     {
@@ -214,7 +214,7 @@
       "name": "skill-creator",
       "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
       "creatorType": "anthropic",
-      "updatedAt": "2026-04-02T22:38:54.528626Z",
+      "updatedAt": "2026-04-17T16:26:39.653627Z",
       "enabled": true
     },
     {
@@ -222,7 +222,7 @@
       "name": "theme-factory",
       "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
       "creatorType": "anthropic",
-      "updatedAt": "2026-04-02T22:38:54.654145Z",
+      "updatedAt": "2026-04-17T16:26:39.776597Z",
       "enabled": true
     },
     {
@@ -230,7 +230,7 @@
       "name": "mcp-builder",
       "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
       "creatorType": "anthropic",
-      "updatedAt": "2026-04-02T22:38:54.623726Z",
+      "updatedAt": "2026-04-17T16:26:39.745140Z",
       "enabled": true
     },
     {
@@ -238,7 +238,7 @@
       "name": "canvas-design",
       "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
       "creatorType": "anthropic",
-      "updatedAt": "2026-04-02T22:38:54.590947Z",
+      "updatedAt": "2026-04-17T16:26:39.715899Z",
       "enabled": true
     },
     {
@@ -246,7 +246,7 @@
       "name": "brand-guidelines",
       "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.",
       "creatorType": "anthropic",
-      "updatedAt": "2026-04-02T22:38:54.578122Z",
+      "updatedAt": "2026-04-17T16:26:39.700543Z",
       "enabled": true
     },
     {
@@ -254,7 +254,7 @@
       "name": "algorithmic-art",
       "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.",
       "creatorType": "anthropic",
-      "updatedAt": "2026-04-02T22:38:54.543806Z",
+      "updatedAt": "2026-04-17T16:26:39.668447Z",
       "enabled": true
     },
     {
@@ -300,7 +300,15 @@
     {
       "skillId": "setup-cowork",
       "name": "setup-cowork",
-      "description": "Guided Cowork setup — install a matching plugin, try a skill, connect tools.",
+      "description": "Guided Cowork setup — install role-matched plugins, connect your tools, try a skill.",
+      "creatorType": "anthropic",
+      "updatedAt": null,
+      "enabled": true
+    },
+    {
+      "skillId": "consolidate-memory",
+      "name": "consolidate-memory",
+      "description": "Reflective pass over your memory files — merge duplicates, fix stale facts, prune the index.",
       "creatorType": "anthropic",
       "updatedAt": null,
       "enabled": true
