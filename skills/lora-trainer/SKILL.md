@@ -110,20 +110,42 @@ Save keystone to: `content-creators/<creator>/lora-training-v[N]/<creator>_v[N]_
 
 | Shot type | Count | Notes |
 |---|---|---|
-| Head + shoulders front | 4-6 | Different expressions: neutral, soft smile, eyes closed, laughing |
-| Three-quarter | 4-6 | Left + right, soft expression variation |
-| Profile | 2-4 | Left + right |
-| Upper body | 8-10 | Different outfits + light direction |
-| Full body | 10-15 | Different settings, poses, framings |
-| Detail | 2-4 | Hands, feet, hair detail |
+| Head + shoulders front | 4-6 | Eye-locked default; 1-2 deliberate variation (eyes closed laughing / eyes lowered) |
+| Three-quarter | 4-6 | Left + right, eye-locked default |
+| Profile | 2-4 | Left + right — eye state per profile composition |
+| Upper body | 8-10 | Different outfits + light direction, eye-locked default |
+| Full body | 10-15 | Different settings, poses, framings; eye state per shot composition |
+| Detail | 2-4 | Hands, feet, hair detail (no face — eye-state N/A) |
 
 Total target: **30-50 images**. More is not always better — quality > quantity. Cull aggressively in Phase 3.
 
+### Eye-state in dataset (locked 13 May 2026)
+
+**Default: sharp-iris eye contact in ~80-85% of dataset images.** Deliberate variation in ~15-20% (eyes closed laughing, eyes lowered, gaze averted). This bakes sharp-eye-contact into the LoRA as a learned identity attribute, while still giving the model room to render the character with eyes closed when prompted.
+
+**Why this matters:** Z-Image base biases toward soft-eye glamour-photography defaults. Without explicit eye-lock in training data, characters render with out-of-focus eyes on tight portrait crops, requiring a Face+Eye Detailer second pass. Baking it into training removes the second-pass cost on every inference.
+
+**Caption implication:** Per the variance rule below, eye state is captioned ONLY when the shot deviates from the eye-locked default. The default sharp-eye-contact shots get NO mention of eyes in the caption — that's how the LoRA learns it's part of the identity. The deliberate-variation shots get explicit captions ("eyes lowered toward matcha bowl", "eyes closed laughing", "gaze drifting off-camera left").
+
 ### Gemini prompt pattern
 
+**Default (eye-locked, ~80-85% of dataset):**
+
+Use the **redundant positive-stack treatment** (locked 13 May 2026). Single descriptors don't survive Z-Image's gaze-away bias at inference — even if Gemini renders the training image with sharp eye-contact, the LoRA needs to learn the *strength* of that anchor:
+
 ```
-Same woman as the reference image, [specific scene + framing + light + outfit], natural skin texture, no airbrushing
+Same woman as the reference image, [specific scene + framing + light + outfit], head squared directly to camera, eye-line locked dead at the lens, both pupils centered on the camera, irises pointed straight at the viewer, both irises clearly visible in sharp focus, body squared to camera, natural skin texture, no airbrushing
 ```
+
+**Deliberate variation (~15-20% of dataset — eyes closed / averted shots):**
+
+```
+Same woman as the reference image, [specific scene + framing + light + outfit], [eye state: e.g. "eyes closed in laughter" / "eyes lowered toward bowl" / "gaze drifting off-camera right"], natural skin texture, no airbrushing
+```
+
+**Why redundant stack** (locked 13 May 2026 after Vivienne MILF SFW batch off-camera-gaze failure on Z-Image Turbo): Z-Image uses CFG 1.0 (negatives inert), and the SFW editorial register has a built-in gaze-away bias from its training data (contemplative portrait photography commonly features off-camera gaze). NSFW LoRA stacks counter this by shifting distribution to "performing for camera." Without NSFW LoRA, you need 4-6 redundant positive anchors front-loaded. Single "eyes locked on camera" descriptors get overridden ~40% of the time on SFW Z-Image renders.
+
+**Off-axis-implying pose words to AVOID in default eye-locked shots:** "looking back over her shoulder", "looking up at", "looking down at", "glancing", "looking off into", "gazing past", "looking at [object]". These pose phrases inherently imply non-camera gaze and override the eye-lock stack. Use "head turned to face the camera dead-on" instead.
 
 ### Anti-patterns
 
@@ -131,6 +153,7 @@ Same woman as the reference image, [specific scene + framing + light + outfit], 
 - **No named eyelashes** — they render painted-on after upscale (per `feedback_no_named_lashes.md`)
 - **No "clear smooth skin" / "perfect"** — strips realism
 - **No multi-person scenes** — face attribution gets confused
+- **No "soft focus" / "shallow depth of field on face"** — bakes out-of-focus eyes into the LoRA, which is exactly today's eye-shit problem. Sharp eyes always; if you want soft-focus aesthetic, apply at inference.
 
 Save all to: `content-creators/<creator>/lora-training-v[N]/dataset-gemini/`
 
@@ -180,6 +203,7 @@ For each kept image, write a `.txt` file with matching name. Format:
 - **Face/hair/skin descriptors** (per `feedback_persona_prefix_poisons_zimage_lora.md`) — those tokens corrupt Z-Image latent space when applied at inference
 - **The literal name** ("Wren", "Wren Rivers") — risks the LoRA learning name-as-token vs face
 - **Eyelash references** — see `feedback_no_named_lashes.md`
+- **Eye-locked / sharp-iris / eye-contact descriptors on default shots** — that's the constant identity attribute the LoRA learns via absence. Only caption eye state when it's the non-default variation (eyes closed / lowered / averted).
 - **Filler words** — keep tight, ~20-50 tokens per caption
 
 ### What captions SHOULD contain
@@ -199,6 +223,8 @@ The principle: **caption what VARIES, not what's CONSTANT.** The model learns "t
 | Hair colour (single colour across dataset) | NO | Constant — would over-attribute. Face wins via absence. |
 | Hair style (varies — up / down / wet / dry) | YES — describe the style only ("low bun", "wet from the surf") | Variable per shot |
 | Eye colour | NO | Constant. Causes inference latent corruption (per `feedback_persona_prefix_poisons_zimage_lora.md`) |
+| Eye state — sharp-iris-on-camera (default ~80-85% of dataset) | NO | Constant default — captioning it would over-attribute and cause inference latent corruption like eye colour. LoRA learns it via absence. |
+| Eye state — closed / lowered / averted (deliberate variation ~15-20%) | YES — describe only the non-default state ("eyes closed laughing", "eyes lowered toward bowl", "gaze drifting off-camera left") | Variable per shot |
 | Skin tone | NO | Constant. Same poisoning risk. |
 | Face shape / cheekbones / lips | NEVER | These are the LoRA's job; describing = teaching that they vary |
 | Outfit | YES | Varies per shot |
